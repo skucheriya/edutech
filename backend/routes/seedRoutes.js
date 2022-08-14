@@ -1,8 +1,8 @@
 import express from "express";
-import { FakeData } from "../FakeData.js";
-import { DropdownData } from "../models/dropDownModel.js";
-import { Product } from "../models/productModel.js";
-import { User } from "../models/userModel.js";
+import { FakeData } from "../FakeData";
+import { DropdownData } from "../models/dropdownModel";
+import { Product } from "../models/productModel";
+import { User } from "../models/userModel";
 
 
 const seedRouter = express.Router()

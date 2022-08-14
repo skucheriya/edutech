@@ -1,5 +1,5 @@
 import express from 'express'
-import { DropdownData } from '../models/dropDownModel.js';
+import { DropdownData } from '../models/dropdownModel';
 const dropdownRoutes = express()
 
 dropdownRoutes.get('/dropdowns', async (req, res) => {

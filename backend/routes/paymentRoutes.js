@@ -1,8 +1,8 @@
 import express from 'express'
-import { Order } from '../models/orderModel.js';
+import { Order } from '../models/orderModel';
 import Stripe from 'stripe';
-import { isAuth } from '../utils.js';
-import { Product } from '../models/productModel.js';
+import { isAuth } from '../utils';
+import { Product } from '../models/productModel';
 const stripe = new Stripe('sk_test_51KuebKSJLbL4xErsCA0xtWb5q8by5WaYAWmlVLmo67yJh2ByySdtiP6awKY3HifcFeQVpUcXlMy8KmaI3B1FvtO400SNGTxv3y');
 const paymentRouter = express()
 

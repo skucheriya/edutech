@@ -1,8 +1,8 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
-import { Order } from "../models/orderModel.js";
-import { Product } from "../models/productModel.js";
-import { isAdmin, isAuth } from "../utils.js";
+import { Order } from "../models/orderModel";
+import { Product } from "../models/productModel";
+import { isAdmin, isAuth } from "../utils";
 import _ from "lodash";
 const orderRouter = express();
 
