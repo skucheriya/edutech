@@ -1,0 +1,99 @@
+.landing-container {
+  background-image: url("../Landing/background.jpeg");
+  background-size: cover;
+  .landing-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .landing-logo {
+        img {
+            width: 30%;
+        }
+    }
+    .landing-inner-container {
+        
+        .landing-sub-container {
+            .landing-heading1 {
+                font-size: 2.5rem;
+                color: white;
+            }
+        }
+        .landing-sub-container2 {
+            .landing-button-container {
+                button {
+                    align-self: flex-start;
+                    background-color: #e0fe9c;
+                    color: black;
+                    margin: 10px 0px;
+                    border-radius: 0;
+                    width: 100%;
+                    height: 70px;
+                    box-shadow: 2px 2px 15px 2px rgba(255, 255, 255, 0.2);
+                    padding: 0px 5px;
+                    justify-content : space-around;
+                    align-items : center;
+                    &:hover {
+                        color: white;
+                        background-color: transparent;
+                    }
+            }
+            .landing-button {
+                .landing-button-title {
+                    width: 70%;
+                }
+            }
+            }
+            .landing-heading2 {
+                font-size: 1.5rem;
+                color: white;
+            }
+        }
+    }
+  }
+
+  @media only screen and (min-device-width:768px){
+    .landing-overlay {
+        .landing-logo {
+            img {
+                width: 20%;
+            }
+        }
+        .landing-inner-container {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+  }
+
+
+  @media only screen and (min-device-width:1024px){
+        .landing-overlay {
+            justify-content: unset;
+            height: 100vh;
+            .landing-logo {
+                height: 10%;
+                img {
+                    width: 10%;
+                }
+            }
+            .landing-inner-container {
+                height: 90%;
+                display: flex;
+                justify-content: space-around;
+                .landing-sub-container {
+                    width: 50%;
+                    .landing-heading1 {
+                        font-size: 4.5rem;
+                    }
+                }
+                .landing-sub-container2 {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
