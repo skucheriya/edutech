@@ -6,7 +6,7 @@ import User from "../pages/User";
 import logo from "../Landing/logo.png";
 import { storeUser } from "../store/actions/userActions";
 import CreateMeeting from "./CreateMeeting";
-
+import * as constants from '../utils/constants'
 const CustomInput = (props) => {
     return <div className="input-container">
         <label>
@@ -47,7 +47,7 @@ const RegistrationForm = (props) => {
     }
     const getData = async()=>{
         const {data} = await axios.get(
-            `http://localhost:5000/api/dropdowns`
+            `${constants.BASE_API_URL}/api/dropdowns`
           );
           setSectors(data.fields)
           console.log("data",data.fields)
@@ -76,7 +76,7 @@ const RegistrationForm = (props) => {
                     subStream:substreamValue!=="none"?substreams[substreamValue].name:null,
                 }
                 console.log("obj",obj)
-                  const { data } = await axios.post(`http://localhost:5000/api/users/mentorList`, {...obj});
+                  const { data } = await axios.post(`${constants.BASE_API_URL}/api/users/mentorList`, {...obj});
                   setScreen("mentorList")
                   setmentorList(data)
                   console.log(data);

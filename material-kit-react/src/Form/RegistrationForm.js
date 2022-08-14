@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import logo from "../Landing/logo.png";
 import { storeUser } from "../store/actions/userActions";
+import * as constants from '../utils/constants'
 
 const CustomInput = (props) => {
     return <div className="input-container">
@@ -56,7 +57,7 @@ const RegistrationForm = (props) => {
               <form onSubmit={async(e)=>{
                 e.preventDefault()
                 props.storeUser({...props.user,...userDetails})
-                const { data } = await axios.post(`http://localhost:5000/api/users/profile`,{...props.user,...userDetails})
+                const { data } = await axios.post(`${constants.BASE_API_URL}/api/users/profile`,{...props.user,...userDetails})
                 window.location.href="/dropdown"
                 }}>
               <CustomInput label="Name" placeholder="John Doe" type="text" disabled={userDetails.name!==''} value={userDetails.name} onChange={(e)=>handleChange('name',e.target.value)}/>

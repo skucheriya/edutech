@@ -6,6 +6,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { connect } from "react-redux";
 import { storeUser } from "../store/actions/userActions";
+import * as constants from '../utils/constants'
 
 function LandingPage(props) {
   const login = useGoogleLogin({
@@ -26,7 +27,7 @@ function LandingPage(props) {
           token: tokenResponse.access_token,
         });
         const user = await axios.get(
-          `http://localhost:5000/api/users/${userInfo.data.email}`
+          `${constants.BASE_API_URL}/api/users/${userInfo.data.email}`
         );
         console.log("User ----->",user)
         console.log("User Data----->",user.data)

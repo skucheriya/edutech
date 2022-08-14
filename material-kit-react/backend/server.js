@@ -10,6 +10,8 @@ import cors from 'cors';
 import path from 'path';
 import dropdownRoutes from './routes/dropdownRoutes.js';
 
+
+
 dotenv.config()
 
 const url = process.env.MONGODB_URI
@@ -48,9 +50,11 @@ app.use('/api',dropdownRoutes)
 
 
 const __dirname = path.resolve()
-app.use(express.static(path.join(__dirname,'../frontend/build')))
+const buildPath = path.join(__dirname, '..', 'build');
+console.log("buildPath",buildPath)
+app.use(express.static(buildPath));
 app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../frontend/build/index.html'))
+    res.sendFile(path.join(__dirname,'../build/index.html'))
 })
 
 
