@@ -1,14 +1,14 @@
 import dotenv from 'dotenv'
 import express from 'express';
 import mongoose  from 'mongoose';
-import seedRouter from './routes/seedRoutes';
-import productRouter from './routes/productRoutes';
-import userRouter from './routes/userRoutes';
-import orderRouter from './routes/orderRoutes';
-import paymentRouter from './routes/paymentRoutes';
+import seedRouter from './routes/seedRoutes.js';
+import productRouter from './routes/productRoutes.js';
+import userRouter from './routes/userRoutes.js';
+import orderRouter from './routes/orderRoutes.js';
+import paymentRouter from './routes/paymentRoutes.js';
 import cors from 'cors';
 import path from 'path';
-import dropdownRoutes from './routes/dropdownRoutes';
+import dropdownRoutes from './routes/dropdownRoutes.js';
 
 
 
