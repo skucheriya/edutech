@@ -21,7 +21,8 @@ const RegistrationForm = (props) => {
       dob: '',
       number: '',
       email: props.user.email??'',
-      educationDesc: ''
+      educationDesc: '',
+      role: props.user.role
       // username: '',
       // password: '',
   })
@@ -58,7 +59,8 @@ const RegistrationForm = (props) => {
                 e.preventDefault()
                 props.storeUser({...props.user,...userDetails})
                 const { data } = await axios.post(`${constants.BASE_API_URL}/api/users/profile`,{...props.user,...userDetails})
-                window.location.href="/dropdown"
+                
+                // window.location.href="/dropdown"
                 }}>
               <CustomInput label="Name" placeholder="John Doe" type="text" disabled={userDetails.name!==''} value={userDetails.name} onChange={(e)=>handleChange('name',e.target.value)}/>
               <CustomInput label="Date Of Birth" type="date" value={userDetails.dob} onChange={(e)=>handleChange('dob',e.target.value)}/>

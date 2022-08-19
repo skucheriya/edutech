@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import ArrowIcon from "@mui/icons-material/ArrowForward";
 import logo from "./logo.png";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -9,6 +9,7 @@ import { storeUser } from "../store/actions/userActions";
 import * as constants from '../utils/constants'
 
 function LandingPage(props) {
+  const [userRole, setUserRole] = useState("");
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       const userInfo = await axios.get(
@@ -25,6 +26,7 @@ function LandingPage(props) {
           name: userInfo.data.name,
           picture: userInfo.data.picture,
           token: tokenResponse.access_token,
+          role: userRole
         });
         const user = await axios.get(
           `${constants.BASE_API_URL}/api/users/${userInfo.data.email}`
@@ -94,7 +96,12 @@ function LandingPage(props) {
               <Button
                 className="landing-button"
                 onClick={() => {
-                  window.location.href = "/form";
+                  if (!props.user) {
+                    setUserRole("mentor")
+                    login();
+                  }else{
+                    window.location.href = "/dashboard";
+                  }
                 }}
               >
                 <div className="landing-button-title">MENTOR LOGIN</div>
@@ -105,6 +112,7 @@ function LandingPage(props) {
                 className="landing-button"
                 onClick={() => {
                   if (!props.user) {
+                    setUserRole("")
                     login();
                   }else{
                     window.location.href = "/dashboard";

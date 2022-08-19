@@ -44,6 +44,7 @@ userRouter.post('/profile',expressAsyncHandler(async(req,res)=>{
             number: req.body.number,
             picture: req.body.picture,
             token: req.body.token,
+            role: req.body.role
         })
         const user = await newUser.save()
         res.send({...user._doc})
